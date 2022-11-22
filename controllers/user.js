@@ -7,6 +7,7 @@ const bcrypt = require("bcrypt");
 const { Types } = require("mongoose");
 const multer = require('multer')
 
+
 const authUser = asyncHandler(async (req, res) => {
   try {
     const { email, password, name } = req.body;
@@ -101,7 +102,7 @@ const uploadLogo = asyncHandler(async (req, res) => {
           cb(null, req.imageName);
         },
       }),
-    }).single("file");
+    }).single("image");
 
     req.imageName = `${req.params.id}.jpg`;
     upload(req, res, (err) => {
